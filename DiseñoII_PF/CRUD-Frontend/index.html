@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Font Awesome CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Crud Gestión de datos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+
+        <header>
+            <h1>Gestión de Datos</h1>
+            <div class="filterEntries">
+                <div class="entries">
+                    Mostrar <select name="" id="table_size">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                    </select> registros por pagina
+                </div>
+
+                <div class="filter">
+                    <label for="search">Buscar:</label>
+                    <input type="search" name="" id="search" placeholder="No. documento">
+                    <button>Buscar</button>
+                    <button class="clear-button">Limpiar</button>
+                </div>
+            </div>
+
+            <div class="addMemberBt">
+                <button class="addMemberBtn">Registrar</button>
+                <button id="logBtn">Log</button>
+                <button id="getBtn">Obtener datos</button>
+            </div>
+        </header>
+
+      <!--Tabla de Registros-->
+        <table>
+            <!--Def de columnas-->
+            <thead>
+                <tr class="heading">
+                    <th>Reg#</th>
+                    <th>Foto</th>
+                    <th>Tipo de documento</th>
+                    <th>Nro. documento</th>
+                    <th>Primer Nombre</th>
+                    <th>Segundo Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Género</th>
+                    <th>Fecha de nacimiento</th>
+                    <th>Correo</th>
+                    <th>Celular</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+
+            <!--Fragmento no renderizado HTML que representa el cuerpo de la tabla -->
+
+            <tbody class="userInfo">
+
+                <!-- <tr><td class="empty" colspan="11" align="center">No data available in table</td></tr> -->
+                <!-- <tr>
+                    <td>1</td>
+                    <td><img src="./img/pic1.png" alt="" width="40" height="40"></td>
+                    <td>Tarjeta de identidad</td>
+                    <td>1129524368</td>
+                    <td>Jonathan</td>
+                    <td>Stiven</td>
+                    <td>Fontalvo Aparicio</td>
+                    <td>Masculino</td>
+                    <td>03-08-2010</td>
+                    <td>jfontalvoe@gmail.com</td>
+                    <td>3004438627</td>
+                    <td>
+                        <button><i class="fa-regular fa-eye"></i></button>
+                        <button><i class="fa-regular fa-pen-to-square"></i></button>
+                        <button><i class="fa-regular fa-trash-can"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img src="./img/pic1.png" alt="" width="40" height="40"></td>
+                    <td>Tarjeta de identidad</td>
+                    <td>1129524368</td>
+                    <td>Jonathan</td>
+                    <td>Stiven</td>
+                    <td>Fontalvo Aparicio</td>
+                    <td>Masculino</td>
+                    <td>03-08-2010</td>
+                    <td>jfontalvoe.net111@gmail.com</td>
+                    <td>3004438627</td>
+                    <td>
+                        <button><i class="fa-regular fa-eye"></i></button>
+                        <button><i class="fa-regular fa-pen-to-square"></i></button>
+                        <button><i class="fa-regular fa-trash-can"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img src="./img/pic1.png" alt="" width="40" height="40"></td>
+                    <td>Tarjeta de identidad</td>
+                    <td>1129524368</td>
+                    <td>Jonathan</td>
+                    <td>Stiven</td>
+                    <td>Fontalvo Aparicio</td>
+                    <td>Masculino</td>
+                    <td>03-08-2010</td>
+                    <td>jfontalvoe.net111@gmail.com</td>
+                    <td>3004438627</td>
+                    <td>
+                        <button><i class="fa-regular fa-eye"></i></button>
+                        <button><i class="fa-regular fa-pen-to-square"></i></button>
+                        <button><i class="fa-regular fa-trash-can"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img src="./img/pic1.png" alt="" width="40" height="40"></td>
+                    <td>Tarjeta de identidad</td>
+                    <td>1129524368</td>
+                    <td>Jonathan</td>
+                    <td>Stiven</td>
+                    <td>Fontalvo Aparicio</td>
+                    <td>Masculino</td>
+                    <td>03-08-2010</td>
+                    <td>jfontalvoe.net111@gmail.com</td>
+                    <td>3004438627</td>
+                    <td>
+                        <button><i class="fa-regular fa-eye"></i></button>
+                        <button><i class="fa-regular fa-pen-to-square"></i></button>
+                        <button><i class="fa-regular fa-trash-can"></i></button>
+                    </td>
+                </tr>
+             -->
+            </tbody>
+
+        </table>
+
+
+        <footer>
+            <span class="showEntries">Mostrando 1 a 10 de 50 Registrados</span>
+            <div class="pagination">
+                <!-- <button>Prev</button>
+                <button class="active">1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+                <button>5</button>
+                <button>Next</button> -->
+            </div>
+        </footer>
+    </div>
+
+
+    <!--Popup Form-->
+
+    <div class="dark_bg">
+
+        <div class="popup">
+             <header>
+                <h2 class="modalTitle">Fill the form</h2>
+                <button class="closeBtn">&times;</button>
+             </header>
+
+             <div class="body">
+                <form action="#" id="myForm" enctype="multipart/form-data">
+                    <div class="imgholder">
+                        <label for="uploadimg" class="upload">
+                            <input type="file" name="profilePicture" id="uploadimg" class="picture" accept="image/*" required>
+                            <i class="fa-solid fa-plus"></i>
+                        </label>
+                        <img src="./img/pic1.png" alt="" width="150" height="150" class="img">
+                    </div>
+
+                    <div class="inputFieldContainer">
+
+                        <div class="filterEntries">
+                            <div class="entries">
+                                <label for="tipoDNI">Tipo de documento:</label>
+                                <select id="tipoDNI" name= "tipoDNI"required>
+                                    <option value="" disabled selected>Seleccionar</option>
+                                    <option value="Cédula">Cédula</option>
+                                    <option value="Tarjeta de Identidad">Tarjeta de identidad</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form_control">
+                            <label for="no_documento">Nro. documento:</label>
+                            <input type="text" name="" id="no_documento" required oninput="validarLenDoc()" >
+                            <div id="mensajeErrorDoc" style="color: rgb(231, 111, 42)"></div>
+                        </div>
+                        
+                        <div class="nameField">
+                            <div class="form_control">
+                                <label for="fName">Primer Nombre:</label>
+                                <input type="text" name="" id="fName" required oninput="validarNombre('fName')">
+                                <div id="mensajeErrorFName" style="color: rgb(231, 111, 42)"></div>
+                            </div>
+
+                            <div class="form_control">
+                                <label for="sName">Segundo Nombre:</label>
+                                <input type="text" name="" id="sName" required oninput="validarNombre('sName')">
+                                <div id="mensajeErrorSName" style="color: rgb(231, 111, 42)"></div>
+                            </div>
+                        </div>
+
+                        <div class="form_control">
+                            <label for="lName">Apellidos:</label>
+                            <input type="text" name="" id="lName" required oninput="validarApellido()">
+                            <div id="mensajeErrorLName" style="color: rgb(231, 111, 42)"></div>
+                        </div> 
+
+                        <div class="filterEntries">
+                            <div class="entries">
+                                <label for="genero">Género:</label>
+                                <select id="genero" name= "genero"required>
+                                    <option value="" disabled selected>Seleccionar</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Femenino">Femenino</option>
+                                    <option value="No binario">No binario</option>
+                                    <option value="Prefiero no responder">Prefiero no responder</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form_control">
+                            <label for="bDate">Fecha de nacimiento:</label>
+                            <input type="date" name="" id="bDate" required>
+                        </div>
+
+                        <div class="form_control">
+                            <label for="email">Correo:</label>
+                            <input type="text" name="" id="email" required oninput="validarCorreo()">
+                            <div id="mensajeErrorEmail" style="color: rgb(231, 111, 42)"></div>
+                        </div>
+
+                        <div class="form_control">
+                            <label for="phone">Celular:</label>
+                            <input type="text" name="" id="phone" required oninput="validarLenCel()">
+                            <div id="mensajeErrorCel" style="color: rgb(231, 111, 42)"></div>
+                        </div>
+                    </div>
+                </form>
+             </div>
+
+             <footer class="popupFooter">
+                <button form="myForm" class="submitBtn">Submit</button>
+             </footer>
+        </div>
+
+    </div>
+
+    <!-- Nueva vista para el log -->
+<div class="log-container" style="display: none;">
+    <h1>Log de Acciones</h1>
+
+    <!-- Filtros para buscar en el log -->
+    <div class="filterLog">
+        <label for="searchLog">Dato a Buscar:</label>
+        <input type="search" name="" id="searchLog" placeholder="Ingrese dato">
+        <button onclick="filterLogD()">Buscar No. Documento</button>
+        <button class="clear-button" onclick="clearLogFilters()">Limpiar</button>
+    </div>
+
+    <!-- Tabla para mostrar el log -->
+    <table class="logTable">
+        <thead>
+            <tr class="heading">
+                <th>No. Documento</th>
+                <th>Tipo de Documento</th>
+                <th>Operacion</th>
+                <th>Fecha de Operacion</th>
+                <th>Detalles</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí se llenarán las filas del log -->
+        </tbody>
+    </table>
+
+    <button onclick="goBack()">Volver a la vista principal</button>
+</div>
+
+
+    <script src="app.js"></script>
+    <script src="validaciones.js"></script>
+
+</body>
+</html>
